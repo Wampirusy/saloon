@@ -1,0 +1,23 @@
+<h1><%= @table.saloon.name %></h1>
+
+<h2><%= @table.name %></h2>
+
+<h3><%= @date %></h3>
+
+<p>
+  open: <%= @table.saloon.time_open.strftime('%H:%m') %> - <%= @table.saloon.time_close.strftime('%H:%m') %>
+</p>
+
+<p>
+  vacant time: <%== show_time_sheet(@table.order(@date).data) %>
+</p>
+
+<%= form_tag("application/submit") do %>
+    <%= label_tag(:from) %>
+    <%= text_field_tag(:from) %>
+    <%= label_tag(:to) %>
+    <%= text_field_tag(:to) %>
+    <%= submit_tag %>
+<% end %>
+
+<p style="color: red;"><%= flash[:order] %></p>
