@@ -12,7 +12,7 @@
   vacant time: <%== show_time_sheet(@table.order(@date).data) %>
 </p>
 
-<%= form_tag("application/submit") do %>
+<%= form_tag(application_submit_path(:id => params[:id], :date => params[:date])) do %>
     <%= label_tag(:from) %>
     <%= text_field_tag(:from) %>
     <%= label_tag(:to) %>

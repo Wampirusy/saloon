@@ -15,16 +15,18 @@ class ApplicationController < ActionController::Base
       flash[:order] = "allready reserved"
     end
 
-    redirect_to root_path
+    redirect_to root_path(:id => params[:id], :date => params[:date])
   end
 
   private
 
   def find_table
-    Saloon.find(1).tables.first
+    id = params[:id] || 1
+
+    Saloon.find(id).tables.first
   end
 
   def get_date
-    Date.today
+    params[:date] || Date.today
   end
 end

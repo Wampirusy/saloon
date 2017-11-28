@@ -1,24 +1,20 @@
-# README
+#QUICK START
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- clone the repository
+- configure DB connection
+- run `rake db:migrate` 
+- run `rake create_table` to add test data
+- start `rails server`
 
-Things you may want to cover:
+#HOW IT WORKS
 
-* Ruby version
+- реализована только страница бронирования конкретного столика
+- по умолчанию берется столик_id=1 и текущая дата, но это можно переопределить через GET параметры `id` и `date`
+- время `from` и `to` задается в часах
 
-* System dependencies
+#TODO
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- перенести Order в nosql чтоб хоть как-то избавиться от этого маразма с json'ом
+- как-нибудь переделать создание нового ордера, а то что-то я там совсем натупил
+- добавить поддержку после полуночных заведений
+- ...
